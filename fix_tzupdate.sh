@@ -13,7 +13,7 @@ echo Descomprimiendo tzupdate en `pwd`
 echo
 tar xvfz tzdata2019a.tar.gz
 echo
-echo Timezone antiguo
+echo Timezone antiguo Chile Continental
 echo
 zdump -v Chile/Continental | grep 2019
 echo
@@ -25,9 +25,14 @@ zic backward
 echo
 echo Timezone nuevo instalado
 echo
-echo Eliminando carpeta timezone
-cd ..
-rm -R Timeupdate
-echo
-echo Timezone nuevo
+echo Timezone nuevo para Chile Continental
 zdump -v Chile/Continental | grep 2019
+echo
+echo Validar time zone actual.
+timedatectl | grep -i 'Time zone'
+echo
+echo Modificando zona horaria en sistema
+timedatectl set-timezone Chile/Continental
+echo
+echo Validando time zone aplicado en sistema
+/usr/sbin/zdump -v /etc/localtime | grep 2019
