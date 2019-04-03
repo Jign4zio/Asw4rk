@@ -1,7 +1,6 @@
-
 #! /bin/bash
 #
-# Script para actualizar modificacion cambio hora chile continental 2k19
+# Script cambio de hora 2k19
 echo
 echo
 echo Creando directorio Timeupdate
