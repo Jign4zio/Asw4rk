@@ -36,4 +36,3 @@ timedatectl set-timezone Chile/Continental
 echo
 echo Validando time zone aplicado en sistema
 /usr/sbin/zdump -v /etc/localtime | grep 2019
-
