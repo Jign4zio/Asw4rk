@@ -1,3 +1,4 @@
+
 #! /bin/bash
 #
 # Script para actualizar modificacion cambio hora chile continental 2k19
@@ -36,3 +37,4 @@ timedatectl set-timezone Chile/Continental
 echo
 echo Validando time zone aplicado en sistema
 /usr/sbin/zdump -v /etc/localtime | grep 2019
+
