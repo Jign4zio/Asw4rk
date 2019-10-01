@@ -14,7 +14,7 @@ systemctl start clamd
 systemctl enable clamd
  
 cp /etc/clamd.conf /etc/clamd.conf.$dt$ti
-sed -i 's/3310/44410' /etc/clamd.conf
+sed -i 's/3310/44410/' /etc/clamd.conf
  
 cp ./fix_clamscan.txt /root/clamscan.sh
 chmod +x /root/clamscan.sh
