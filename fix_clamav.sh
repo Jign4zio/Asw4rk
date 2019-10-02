@@ -18,6 +18,10 @@ sed -i 's/3310/44410/' /etc/clamd.conf
  
 cp ./fix_clamscan.txt /root/clamscan.sh
 chmod +x /root/clamscan.sh
+systemctl stop clamd.service
+systemctl start clamd.service
+echo "Revisar si el puerto 3310 esta tomado por clamd"
+netstat -napt | grep 3310
 echo "Use comando crontab -e"
 echo "Luego agregue 5 0 * * * /root/clamscan.sh"
 echo verifique con comando crontab -l
