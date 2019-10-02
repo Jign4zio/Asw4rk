@@ -21,6 +21,7 @@ chmod +x /root/clamscan.sh
 systemctl stop clamd.service
 systemctl start clamd.service
 echo "Revisar si el puerto 3310 esta tomado por clamd"
+echo "Si no sale nada arriba de esto, el puerto no esta tomado"
 netstat -napt | grep 3310
 echo "Use comando crontab -e"
 echo "Luego agregue 5 0 * * * /root/clamscan.sh"
