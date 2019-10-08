@@ -18,7 +18,9 @@ freshclam >> clamscan-$hs-$dt-$ti.log 2>&1a
 # Agregar filesystem de transportes y filesystems compartidos en reemplazo de /usr/bin
 # Lo que esta entre *** se repite si hay mas de un directorio
 # ***
-clamscan -r -i /usr/bin >> clamscan-$hs-$dt-$ti.log 2>&1
+clamscan -r -i /home >> clamscan-$hs-$dt-$ti.log 2>&1
+clamscan -r -i /usr/sap/trans >> clamscan-$hs-$dt-$ti.log 2>&1
+
 # ***
 
 infile=`cat clamscan-$hs-$dt-$ti.log | grep Infected | head -n 1 | awk '{print $3}'`
