@@ -1,0 +1,32 @@
+#! /bin/bash
+#                   
+dt=`date +20%y%m%d`
+ti=`date +%H%M%d`
+hs=`hostname`
+
+usr="alertas@saphelp.cl"
+pas="SapHelp.18"
+tou="syshelp@aservices.cl"
+hst=`hostname`
+sub="Virus Warning en: $hst"
+mes="Por favor revisar ->   "
+ata="clamscan-$hs-$dt-$ti.log"
+
+echo Antivirus $hs $dt $ti > clamscan-$hs-$dt-$ti.log 2>&1
+freshclam >> clamscan-$hs-$dt-$ti.log 2>&1a
+
+# Agregar filesystem de transportes y filesystems compartidos en reemplazo de /usr/bin
+# Lo que esta entre *** se repite si hay mas de un directorio
+# ***
+clamscan -r -i /usr/bin >> clamscan-$hs-$dt-$ti.log 2>&1
+# ***
+
+infile=`cat clamscan-$hs-$dt-$ti.log | grep Infected | head -n 1 | awk '{print $3}'`
+if [ $infile -gt 0 ]
+then
+  ./ymail.py -u $usr -p $pas -t $tou -s "$sub" -m "$mes" -a $ata
+fi
+
+cp  clamscan-$hs-$dt-$ti.log  /home/appmon
+chown appmon /home/appmon/clamscan-$hs-$dt-$ti.log
+rm clamscan-$hs-$dt-$ti.log
