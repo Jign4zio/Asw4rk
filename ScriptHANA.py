@@ -4,6 +4,7 @@
 import sys
 import gspread
 import time
+import os
 #Apertura conexion Google Sheets
 gc = gspread.service_account()
 
@@ -14,7 +15,7 @@ SIDSAP = sys.argv[3]
 SO = sys.argv[4]
 
 #Analisis Log HANA
-f=open("backup_"+SIDDB+"_"+NombreCliente+".log","r")
+f=open(os.getcwd()+"/Logs/backup_"+SIDDB+"_"+NombreCliente+".log","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
 date=time.strftime("%d%m")
