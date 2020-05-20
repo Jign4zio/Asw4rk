@@ -4,6 +4,7 @@
 import sys
 import gspread
 import time
+import os
 #Apertura conexion Google Sheets
 gc = gspread.service_account()
 
@@ -14,7 +15,7 @@ SIDSAP = sys.argv[3]
 SO = sys.argv[4]
 
 #Analisis Log SyBase
-f=open(os.getcwd()+"/Logs/"+SIDDB+"_BS_"+NombreCliente+".txt","r")
+f=open(os.getcwd()+"/Logs/"+SIDDB+"_"+NombreCliente+".txt","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
 date=time.strftime("%d%m")
