@@ -13,9 +13,10 @@ NombreCliente = sys.argv[1]
 SIDDB = sys.argv[2]
 SIDSAP = sys.argv[3]
 SO = sys.argv[4]
+RutaBackups = sys.argv[5]
 
 #Analisis Log SyBase
-f=open(os.getcwd()+"/Logs/"+SIDDB+"_"+NombreCliente+".log","r")
+f=open(RutaBackups+"/"+SIDDB+"_"+NombreCliente+".log","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
 date=time.strftime("%d%m")
