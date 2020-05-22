@@ -13,9 +13,11 @@ NombreCliente = sys.argv[1]
 SIDDB = sys.argv[2]
 SIDSAP = sys.argv[3]
 SO = sys.argv[4]
+RutaBackups = sys.argv[5]
+
 
 #Analisis Log HANA
-f=open(os.getcwd()+"/Logs/backup_"+SIDDB+"_"+NombreCliente+".log","r")
+f=open(RutaBackups+"/"+"backup_"+SIDDB+"_"+NombreCliente+".log","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
 date=time.strftime("%d%m")
@@ -30,11 +32,13 @@ for line in reversed(f.readlines()):
                 #mensaje += line
                 status = "successful"
                 fecha = line[0:10]+" "+line[11:19]
+                print (line)
                 break
         if "ERROR   BACKUP" in line:
                 status = "error"
                 fecha = line[0:10]+" "+line[11:19]
                 Errortype = line
+                print (line)
                 break
 
 #2020-05-18T19:02:57-04:00  P010125      172156a8556 INFO    BACKUP   SAVE DATA finished successfully
@@ -55,7 +59,7 @@ for cell in FindNombreCliente:
         ListNombreCliente.append(str(cell)[7:9])
 
 #Busqueda de celdas con SIDDB
-FindSIDDB = worksheet.findall(SIDDB)
+FindSIDDB = worksheet.findall(SIDSAP)
 ListSIDDB = []
 for cell in FindSIDDB:
     if str(cell)[9] != "C":
@@ -70,5 +74,3 @@ for var1 in ListSIDDB:
         worksheet.update('I'+var1, status)
         worksheet.update('H'+var1, fecha)
         worksheet.update('L'+var1, Errortype)
-print fecha
-print status
