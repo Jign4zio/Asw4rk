@@ -15,7 +15,7 @@ SIDSAP = sys.argv[3]
 SO = sys.argv[4]
 
 #Analisis Log SyBase
-f=open(os.getcwd()+"/Logs/"+SIDDB+"_"+NombreCliente+".txt","r")
+f=open(os.getcwd()+"/Logs/"+SIDDB+"_"+NombreCliente+".log","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
 date=time.strftime("%d%m")
@@ -29,11 +29,6 @@ for line in reversed(f.readlines()):
         status=line.rstrip()[84:92]
         f.close()
         break
-
-print fecha
-print status
-print fecha[0:7]
-print mes
 
 #Apertura hoja
 sh = gc.open('Respaldos Diarios-'+mes)
