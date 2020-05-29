@@ -24,7 +24,7 @@ diccionario = {}
 cache = ''
 
 control1 ="DUMP is complete (database "+SIDDB+")."
-control2 = "Database "+SIDDB"+: Verification reported"
+control2 = "Database "+SIDDB+": Verification reported"
 
 for line in reversed(f.readlines()):
     if control1 in line:
