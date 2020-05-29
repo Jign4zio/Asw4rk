@@ -24,9 +24,9 @@ diccionario = {}
 cache = ''
 
 for line in reversed(f.readlines()):
-    if "DUMP is complete (database USD)." in line:
+    if "DUMP is complete (database "+SIDDB+")." in line:
         fecha = line.rstrip()[0:20]
-    if "Database USD: Verification reported" in line and cache in line:
+    if "Database "+SIDDB"+: Verification reported" in line and cache in line:
         status=line.rstrip()[84:92]
         f.close()
         break
