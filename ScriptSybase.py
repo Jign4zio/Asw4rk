@@ -23,10 +23,13 @@ date=time.strftime("%d%m")
 diccionario = {}
 cache = ''
 
+control1 ="DUMP is complete (database "+SIDDB+")."
+control2 = "Database "+SIDDB"+: Verification reported"
+
 for line in reversed(f.readlines()):
-    if "DUMP is complete (database "+SIDDB+")." in line:
+    if control1 in line:
         fecha = line.rstrip()[0:20]
-    if "Database "+SIDDB"+: Verification reported" in line and cache in line:
+    if control2 in line and cache in line:
         status=line.rstrip()[84:92]
         f.close()
         break
