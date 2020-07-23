@@ -19,7 +19,8 @@ RutaBackups = sys.argv[5]
 f=open(RutaBackups+"/"+SIDDB+"_"+NombreCliente+".log","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
-date=time.strftime("%d%m")
+date= time.strftime("%d%m")
+year= time.strftime("%y")
 diccionario = {}
 cache = ''
 
@@ -35,8 +36,8 @@ for line in reversed(f.readlines()):
         break
 
 #Apertura hoja
-sh = gc.open('Respaldos Diarios-'+mes)
-worksheet = sh.worksheet(date)
+sh = gc.open('Respaldos Diarios-'+mes+year)
+worksheet = sh.worksheet(dia)
 
 # Busqueda de celdas con NombreCliente
 FindNombreCliente = worksheet.findall(NombreCliente)
