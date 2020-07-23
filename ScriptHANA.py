@@ -71,6 +71,6 @@ for cell in FindSIDDB:
 for var1 in ListSIDDB:
     if var1 in ListNombreCliente:
         print ("Fila afectada: "+var1)
-        worksheet.update('I'+var1, status)
-        worksheet.update('H'+var1, fecha)
-        worksheet.update('L'+var1, Errortype)
+        worksheet.update('G'+var1, status)
+        worksheet.update('F'+var1, fecha)
+        worksheet.update('J'+var1, Errortype)
