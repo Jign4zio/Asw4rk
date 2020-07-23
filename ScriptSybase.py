@@ -20,7 +20,7 @@ f=open(RutaBackups+"/"+SIDDB+"_"+NombreCliente+".log","r")
 dia = time.strftime("%d")
 mes = time.strftime("%b")
 date= time.strftime("%d%m")
-year= time.strftime("%y")
+year= time.strftime("%Y")
 diccionario = {}
 cache = ''
 
