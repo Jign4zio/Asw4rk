@@ -60,7 +60,7 @@ for cell in FindNombreCliente:
         ListNombreCliente.append(str(cell)[7:9])
 
 #Busqueda de celdas con SIDDB
-FindSIDDB = worksheet.findall(SIDSAP)
+FindSIDDB = worksheet.findall(SIDDB)
 ListSIDDB = []
 for cell in FindSIDDB:
     if str(cell)[9] != "C":
